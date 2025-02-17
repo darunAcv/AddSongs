@@ -29,5 +29,9 @@ public class SongService {
 		return repo.save(newSong);
 		
 	}
+	
+	public Song updateSong(Song songToUpd) {
+		return repo.save(songToUpd);
+	}
 
 }

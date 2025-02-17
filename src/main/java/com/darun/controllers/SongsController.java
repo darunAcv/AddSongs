@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.darun.models.Song;
 import com.darun.services.SongService;
@@ -56,5 +57,27 @@ public class SongsController {
 		}
 		
 		
+	}
+	
+	@GetMapping("/songs/form/editSong/{songId}")
+	public String editSong(@ModelAttribute("song")Song song,
+							@PathVariable("songId")Long id,
+							Model model) {
+		
+		Song songToUpdate = service.getSongById(id);
+		model.addAttribute("song", songToUpdate);
+		
+		return "editSong.jsp";
+	}
+	
+	@PutMapping("/songs/process/editSong/{id}")
+	public String updateSong(@Valid @ModelAttribute("song")Song song,
+								BindingResult result) {
+		if(result.hasErrors()) {
+			return "editSong.jsp";
+		} else {
+			service.updateSong(song);
+			return "redirect:/songs";
+		}
 	}
 }

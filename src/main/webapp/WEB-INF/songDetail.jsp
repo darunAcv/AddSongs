@@ -16,12 +16,14 @@
 		<body>
 			<div class="container">
 				<h1>${song.title} - ${song.artist}</h1>
-				<p class="txt" >Album: ${song.album}</p>
-				<p class="txt" >Genre: ${song.genre}</p>
-				<p class="txt" >Language: ${song.language}</p>
-				<p class="txt" >Artist: ${song.artist}</p>
 				<hr>
-				<p class="txt" ><a class="btn btn-mt-none" href="/songs">< Back</a></p>
+				<p>Album: ${song.album}</p>
+				<p>Genre: ${song.genre}</p>
+				<p>Language: ${song.language}</p>
+				<p>Artist: ${song.artist}</p>
+				<hr>
+				<p><a class="btn btn-mt-none" href="/songs">< Back</a></p>
+				<p> <a class="btn btn-mt-none" href="/songs/form/editSong/${song.id}"> Edit song ></a>
 			</div>
 		</body>
 </html>

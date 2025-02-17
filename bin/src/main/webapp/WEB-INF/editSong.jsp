@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isErrorPage="true" %> 
 <!DOCTYPE html>
 	<html>
 		<head>
 			<meta charset="UTF-8">
-			<title>Add new song</title>
+			<title>Edit song</title>
 			<link rel="stylesheet" type="text/css"href="/css/songs_style.css?version=1.7">
 				        <link rel="preconnect" href="https://fonts.googleapis.com">
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,9 +16,10 @@
 		</head>
 		<body>
 		<div class="container container-tb">
-			<h1> Add new song...</h1>
+			<h1> Edit song...</h1>
 			<hr>
-			<form:form class="left" action="/songs/process/add" method="post" modelAttribute="song">
+			<form:form class="left" action="/songs/process/editSong/${song.id}" method="post" modelAttribute="song">
+				<input type="hidden" name="_method" value="PUT">
 				<div >
 					<label class="txt" for="title" >Title:</label>
 					<form:input class="txt-input" path="title" id="title"/>
@@ -48,7 +50,7 @@
 					<br>
 					<form:errors path="language" class="txt danger"/>	
 				</div>
-				<input class="btn" type="submit" value="Save song">
+				<input class="btn" type="submit" value="Update song">
 			</form:form>
 			<hr>
 			<a class="btn btn-mt-none" href="/songs">< Back</a>

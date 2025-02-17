@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -23,13 +22,8 @@
 				<p>Language: ${song.language}</p>
 				<p>Artist: ${song.artist}</p>
 				<hr>
-				<p><a class="btn btn-mt-none" href="/songs">< Back</a>
-					<a class="btn btn-mt-none" href="/songs/form/editSong/${song.id}"> Edit song ></a>
-					<form:form action="/songs/delete/${song.id}" method="POST">
-						<input type="hidden" name="_method" value="DELETE"/>
-						<input type="submit" value="✕ Delete song" class="btn btn-mt-none txt-danger">
-					</form:form>
-				</p>
+				<p><a class="btn btn-mt-none" href="/songs">< Back</a></p>
+				<p> <a class="btn btn-mt-none" href="/songs/form/editSong/${song.id}"> Edit song ></a>
 			</div>
 		</body>
 </html>

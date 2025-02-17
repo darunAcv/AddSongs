@@ -34,4 +34,7 @@ public class SongService {
 		return repo.save(songToUpd);
 	}
 
+	public void deleteSong(Long id) {
+		repo.deleteById(id);
+	}
 }
